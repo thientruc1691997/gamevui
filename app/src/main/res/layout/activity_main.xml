@@ -4,9 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:textAlignment="center"
     android:background="@color/Lumber"
-    >
+    android:textAlignment="center">
 
     <TextView
         android:id="@+id/textViewNumber"
@@ -78,7 +77,7 @@
         android:layout_marginTop="159dp"
         android:layout_marginEnd="96dp"
         android:ems="10"
-        android:inputType="text"
+        android:inputType="numberDecimal"
         android:textAlignment="center" />
 
     <TextView

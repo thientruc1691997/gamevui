@@ -31,12 +31,12 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         txtNumber = findViewById(R.id.textViewNumber);
         btnRandom = findViewById(R.id.buttonRandom);
-        myNumb= findViewById(R.id.myNumber);
-        btnSubmit= findViewById(R.id.submit);
+        myNumb = findViewById(R.id.myNumber);
+        btnSubmit = findViewById(R.id.submit);
         myResult = findViewById(R.id.result);
         visibleText1 = findViewById(R.id.visibleText);
 
-        txtNumber.addTextChangedListener(new TextWatcher() {
+        myNumb.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
 
@@ -44,7 +44,7 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-                if(charSequence.length()!=0)
+                if (charSequence.length() != 0)
                     visibleText1.setVisibility(View.INVISIBLE);
                 else visibleText1.setVisibility(View.VISIBLE);
 
@@ -61,8 +61,7 @@ public class MainActivity extends AppCompatActivity {
             String strValue = myNumb.getText().toString();
             myNumb.setText(strValue);
             //myNumb.setKeyListener(null);
-
-
+            myResult.setText(compareResult(Integer.valueOf(myNumb.getText().toString()), Integer.valueOf(txtNumber.getText().toString())));
 
         });
 
@@ -76,9 +75,16 @@ public class MainActivity extends AppCompatActivity {
         });
 
 
+    }
 
-
-
-
+    private String compareResult(int inputNumber, int randomNumber) {
+        double num = inputNumber - randomNumber;
+        if (num < 0) {
+            return inputNumber + " < " + randomNumber;
+        } else if (num > 0) {
+            return inputNumber + " > " + randomNumber;
+        } else {
+            return inputNumber + " = " + randomNumber;
+        }
     }
 }
