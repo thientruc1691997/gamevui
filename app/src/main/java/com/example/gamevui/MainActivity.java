@@ -77,6 +77,7 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    // Check condition
     private String compareResult(int inputNumber, int randomNumber) {
         double num = inputNumber - randomNumber;
         if (num < 0) {
